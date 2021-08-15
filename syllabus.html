@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>CS229: Machine Learning</title>
+
+  <!-- bootstrap -->
+  <!-- <link rel="stylesheet" href="./style/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style/bootstrap-theme.min.css">
+  <link href="./style/newstyle.css" rel="stylesheet" type="text/css">
+  <body>
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <a href="http://cs229.stanford.edu/">
+    <img src="./static/seal-dark-red.png" style="height:40px; float: left; margin-left: 20px; margin-right: 20px;"></a>
+    <a class="navbar-brand" href="http://cs229.stanford.edu/">CS229</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="./index.html#announcement">Announcements</a></li>
+        <li class="nav-item"><a class="nav-link" href="./syllabus.html">Syllabus</a></li>
+        <li class="nav-item"><a class="nav-link" href="./index.html#info">Course Info</a></li>
+        <li class="nav-item"><a class="nav-link" href="./index.html#logistics">Logistics</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://piazza.com/stanford/summer2019/cs229">Piazza</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+<div class="sechighlight">
+<div class="container sec" style="margin-top: 1em">
+  <h2>Syllabus and Course Schedule</h2>
+  <p>
+    [Previous offerings: <a href="syllabus-autumn2018.html"> Autumn 2018</a>, <a href="syllabus-spring2019.html">Spring 2019</a>] </p>
+<br>
+</div>
+</div>
+
+
+<div class="container">
+<strong>*</strong> Below is a collection of topics, of which we plan to cover a large subset this quarter. The specific topics and the order is subject to change.
+
+<table id="topics" class="table table-bordered no-more-tables">
+  <thead class="active" style="background-color:#f9f9f9">
+    <th>Category</th><th>Topic</th>
+  </thead>
+
+  <tbody>
+  <!--<tr>
+    <td colspan="4" style="text-align:center; vertical-align:middle;background-color:#fffde7">
+      <strong>Introduction</strong> (1 class)
+    </td>
+  </tr>-->
+  <tr>
+    <td>Review</td> <td> 
+      <ul>
+	<li> Linear Algebra
+	<li> Matrix Calculus
+        <li> Probability and Statistics
+	</ul>
+      </td>
+   </tr>
+
+  <tr>
+    <td>Supervised Learning</td> 
+    <td> <ul>
+	<li> Linear Regression (Gradient Descent, Normal Equations)
+	<li> Weighted Linear Regression (LWR)
+	<li> Logistic Regression, Perceptron
+         <li> Newton's Method, KL-divergence, (cross-)Entropy, Natural Gradient
+	 <li> Exponential Family and Generalized Linear Models
+         <li> Generative Models (Gaussian Discriminant Analysis, Naive Bayes)
+         <li> Kernel Method (SVM, Gaussian Processes)
+	 <li> Tree Ensembles (Decision trees, Random Forests, Boosting and Gradient Boosting)
+	</ul> 
+    </td>
+  </tr>
+
+  <tr>
+     <td> Learning Theory </td>
+     <td> <ul>
+            <li> Regularization
+             <li> Bias-Variance Decomposition and Tradeoff
+            <li> Concentration Inequalities
+            <li> Generalization and Uniform Convergence
+            <li> VC-dimension
+           </ul>
+      </td>
+   </tr>
+
+   <tr>
+     <td> Deep Learning </td>
+     <td> <ul> <li> Neural Networks <li> Backpropagation <li> Deep Architectures </ul> </td>
+   </tr>
+
+   <tr>
+     <td> Unsupervised Learning </td>
+     <td> <ul>
+	 <li> K-means
+	 <li> Gaussian Mixture Model (GMM)
+	 <li> Expectation Maximization (EM)
+	 <li> Variational Auto-encoder (VAE)
+	 <li> Factor Analysis
+	 <li> Principal Components Analysis (PCA)
+	 <li> Independent Components Analysis (ICA)
+     </ul> </td>
+   </tr>
+
+   <tr>
+     <td> Reinforcement Learning (RL) </td>
+     <td>
+       <ul>
+	 <li> Markov Decision Processes (MDP)
+	 <li> Bellmans Equations
+	 <li> Value Iteration and Policy Iteration
+	 <li> Value Function Approximation
+	 <li> Q-Learning
+       </ul>
+     </td>
+   </tr>
+
+   <tr>
+     <td> Application </td>
+     <td>
+       <ul>
+	 <li> Advice on structuring an ML project
+	 <li> Evaluation Metrics
+       </ul>
+     </td>
+</table>
+
+<div> </div>
+
+<div class="container">
+
+This table will be updated regularly through the quarter to reflect what was actually covered, along with corresponding readings and notes.
+
+<table id="schedule" class="table table-bordered no-more-tables">
+  <thead class="active" style="background-color:#f9f9f9">
+    <th>Event</th><th>Date</th><th>Description</th><th>Materials and Assignments</th>
+  </thead>
+
+  <tbody>
+  <!--<tr>
+    <td colspan="4" style="text-align:center; vertical-align:middle;background-color:#fffde7">
+      <strong>Introduction</strong> (1 class)
+    </td>
+  </tr>-->
+  <tr>
+    <td>Lecture&nbsp;1</td>
+    <td> 6/24 </td>
+    <td> <ul> <li> Introduction and Logistics </li> <li> Review of Linear Algebra </li>
+    </td>
+    <td>
+
+      <strong>Class Notes</strong>
+      <ul> 
+	<li> Introduction [<a href="summer2019/CS229-Intro.pptx">pptx</a>]<br>
+	<li> Linear Algebra (section 1-3) [<a href="summer2019/cs229-linalg.pdf">pdf</a>]
+      </ul>
+
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;2</td>
+    <td>6/26</td>
+    <td>
+      <ul>
+	<li> Review of Matrix Calculus
+	<li> Review of Probability
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul> 
+	<li> Linear Algebra (section 4) [<a href="summer2019/cs229-linalg.pdf">pdf</a>]
+	<li> Probability Theory [<a href="summer2019/cs229-prob.pdf">pdf</a>]
+	<li> Probability Theory Slides [<a href="summer2019/cs229-prob-slide.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;3</td>
+    <td>6/28</td>
+    <td>
+      <ul>
+	<li> Review of Probability and Statistics
+	<li> Setting of Supervised Learning
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul> 
+	<li> Supervised Learning [<a href="summer2019/cs229-notes1.pdf">pdf</a>]
+	<li> Probability Theory [<a href="summer2019/cs229-prob.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;4</td>
+    <td>7/1</td>
+    <td>
+      <ul> 
+	<li> Linear Regression
+	<li> Gradient Descent (GD), Stochastic Gradient Descent (SGD)
+	<li> Normal Equations
+	<li> Probabilistic Interpretation
+	<li> Maximum Likelihood Estimation (MLE)
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul> 
+	<li> Supervised Learning (section 1-3) [<a href="summer2019/cs229-notes1.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;5</td>
+    <td>7/3</td>
+    <td>
+      <ul> 
+	<li> Perceptron
+	<li> Logistic Regression
+	<li> Newton's Method
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul> 
+	<li> Supervised Learning (section 5-7) [<a href="summer2019/cs229-notes1.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;6</td>
+    <td>7/5</td>
+    <td>
+      <ul> 
+	<li> Exponential Family
+	<li> Generalized Linear Models (GLM)
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul> 
+	<li> Supervised Learning (section 8-9) [<a href="summer2019/cs229-notes1.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;7</td>
+    <td>7/8</td>
+    <td>
+      <ul> 
+	<li> Gaussian Discriminant Analysis (GDA)
+	<li> Naive Bayes
+	<li> Laplace Smoothing
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul> 
+	<li> Generative Algorithms [<a href="summer2019/cs229-notes2.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;8</td>
+    <td>7/10</td>
+    <td>
+      <ul>
+	<li> Kernel Methods
+	<li> Support Vector Machine
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> Kernel Methods and SVM [<a href="summer2019/cs229-notes3.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;9</td>
+    <td>7/12</td>
+    <td>
+      <ul> <li> Gaussian Processes </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li>Gaussian Processes [<a href="summer2019/gaussian_processes.pdf">pdf</a>] </li>
+      </ul>
+      <strong>Optional</strong>
+      <ul>
+	<li>The Multivariate Gaussian Distribution [<a href="summer2019/gaussians.pdf">pdf</a>] </li>
+	<li>More on Gaussian Distribution [<a href="summer2019/more_on_gaussians.pdf">pdf</a>] </li>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;10</td>
+    <td>7/15</td>
+    <td>
+      <ul> <li> Neural Networks and Deep Learning </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> Deep Learning (skip Sec 3.3) [<a href="summer2019/cs229-notes-deep_learning.pdf">pdf</a>]
+      </ul>
+      <strong> Optional </strong>
+      <ul>
+	<li> Backpropagation [<a href="notes-spring2019/backprop.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;11</td>
+    <td>7/17</td>
+    <td>
+      <ul>
+      <li> Deep Learning (contd)
+      </ul>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;12</td>
+    <td>7/19</td>
+    <td>
+      <ul>
+	<li> Bias and Variance
+	<li> Regularization, Bayesian Interpretation
+	<li> Model Selection
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> Regularization and Model Selection [<a href="summer2019/cs229-notes5.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;13</td>
+    <td>7/22</td>
+    <td>
+      <ul>
+	<li> Bias-Variance tradeoff (wrap-up)
+	<li> Uniform Convergence
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> Bias Variance Analysis [<a href="summer2019/BiasVarianceAnalysis.pdf">pdf</a>]
+	<li> Statistical Learning Theory [<a href="summer2019/cs229-notes4.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;14</td>
+    <td>7/24</td>
+    <td>
+      <ul>
+	<li> Reinforcement Learning (RL)
+	<li> Markov Decision Processes (MDP)
+	<li> Value and Policy Iterations
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> Reinforcement Learning and Control (Sec 1-2) [<a href="summer2019/cs229-notes12.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;15</td>
+    <td>7/26</td>
+    <td>
+      <ul>
+	<li> RL (wrap-up)
+	<li> Learning MDP model
+	<li> Continuous States
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> Reinforcement Learning and Control (Sec 3-4) [<a href="summer2019/cs229-notes12.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;16</td>
+    <td>7/29</td>
+    <td>
+      Unsupervised Learning
+      <ul>
+	<li> K-means clustering
+	<li> Mixture of Gaussians (GMM)
+	<li> Expectation Maximization (EM)
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> K-means [<a href="summer2019/cs229-notes7a.pdf">pdf</a>]
+	<li> Mixture of Gaussians [<a href="summer2019/cs229-notes7b.pdf">pdf</a>]
+	<li> Expectation Maximization (Sec 1-2, skip 2.1) [<a href="summer2019/cs229-notes8.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;17</td>
+    <td>7/31</td>
+    <td>
+      <ul>
+	<li> EM (wrap-up)
+	<li> Factor Analysis
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> Expectation Maximization (Sec 3) [<a href="summer2019/cs229-notes8.pdf">pdf</a>]
+	<li> Factor Analysis [<a href="summer2019/cs229-notes9.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;18</td>
+    <td>8/2</td>
+    <td>
+      <ul> 
+	<li> Factor Analysis (wrap-up)
+	<li> Principal Components Analysis (PCA)
+	<li> Independent Components Analysis (ICA)
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> Principal Components Analysis [<a href="summer2019/cs229-notes10.pdf">pdf</a>]
+	<li> Independent Components Analysis [<a href="summer2019/cs229-notes11.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;19</td>
+    <td>8/5</td>
+    <td>
+      <ul>
+	<li> Maximum Entropy and Exponential Family
+	<li> KL-Divergence
+	<li> Calibration and Proper Scoring Rules
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> Maximum Entropy [<a href="summer2019/MaxEnt.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;20</td>
+    <td>8/7</td>
+    <td>
+      <ul>
+	<li> Variational Inference
+	<li> EM Variants
+	<li> Variational Autoencoder
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> VAE (Sec 4) [<a href="summer2019/cs229-notes8.pdf">pdf</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;21</td>
+    <td>8/9</td>
+    <td>
+      <ul>
+	<li> Evaluation Metrics </li>
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+      <ul>
+	<li> Evaluation Metrics [<a href="summer2019/EvaluationMetrics.pptx">pptx</a>]
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;22</td>
+    <td>8/12</td>
+    <td>
+      <ul>
+	<li> Practical advice and tips
+	<li> Review for Finals
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Lecture&nbsp;23</td>
+    <td>8/14</td>
+    <td>
+      <ul>
+	<li> Review for Finals
+      </ul>
+    </td>
+    <td>
+      <strong>Class Notes</strong>
+    </td>
+  </tr>
+
+
+  <tr style="vertical-align:middle;background-color:#FFF2F2">
+    <td>Final</td>
+    <td> 8/16 </td>
+    <td></td>
+    <td></td>
+  </tr>
+
+
+
+<!--   <tr style="text-align:center; vertical-align:middle;background-color:#FFF2F2">
+    <td>A0</td>
+    <td> 4/3 </td>
+    <td colspan="3" style="text-align:center; vertical-align:middle;">
+      <strong>Problem Set 0</strong> <a href="https://piazza.com/class/jtuwk7ilolqub?cid=22">[pdf]</a> <a href="https://piazza.com/class/jtuwk7ilolqub?cid=138">[solution]</a>. Out 4/1. Due 4/10. <a href="gradescope.html">Submission instructions</a>.
+    </td>
+  </tr> -->
+
+
+<!--   <tr>
+    <td>Lecture &nbsp;3</td>
+    <td>6/28</td>
+    <td colspan="2">
+      <strong>Discussion Section</strong>: Linear Algebra [<a href="http://cs229.stanford.edu/section-spring2019/cs229-linalg.pdf">Notes</a>]<br>
+    </td>
+  </tr> -->
+
+
+  <tr>
+    <td colspan="4">
+      <b>Other Resources</b>
+      <ol>
+        <li>Advice on applying machine learning: Slides from Andrew's lecture on getting machine learning algorithms to work in practice can be found <a href="http://cs229.stanford.edu/materials/ML-advice.pdf">here</a>.<br></li>
+        <li>Previous projects: A list of last year's final projects can be found <a href="http://cs229.stanford.edu/proj2017/index.html">here</a>.<br></li>
+        <li>Data: Here is the <a href="http://www.ics.uci.edu/~mlearn/MLRepository.html">UCI Machine learning repository</a>, which contains a large collection of standard datasets for testing learning algorithms. If you want to see examples of recent work in machine learning, start by taking a look at the conferences <a href="http://www.nips.cc/">NeurIPS</a> (all old NeurIPS papers are online) and ICML. Some other related conferences include UAI, AAAI, IJCAI.<br></li>
+        <li>Viewing PostScript and PDF files: Depending on the computer you are using, you may be able to download a <a href="http://www.cs.wisc.edu/~ghost/">PostScript</a> viewer or <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html">PDF viewer</a> for it if you don't already have one.<br></li>
+        <li><a href="https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-supervised-learning">Machine learning study guides tailored to CS 229</a> by Afshine Amidi and Shervine Amidi.</li>
+      </ol>
+    </td>
+  </tr>
+
+
+</tbody></table>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body></html>
